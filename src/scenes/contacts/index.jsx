@@ -3,6 +3,7 @@ import {DataGrid, GridToolbar} from "@mui/x-data-grid";
 import {mockDataContacts} from "../../data/mockData";
 import Header from "../../components/Header";
 import {useTheme} from "@mui/material";
+import {tokens} from "../../theme";
 
 const Team = () => {
   const theme = useTheme();
@@ -10,6 +11,7 @@ const Team = () => {
 
   const columns = [
     {field: "id", headerName: "ID"},
+    {field: "registrarId", headerName: "Registrar ID", flex: 0.5},
     {
       field: "name",
       headerName: "Name",
@@ -34,37 +36,14 @@ const Team = () => {
       flex: 1,
     },
     {
-      field: "access",
-      headerName: "Access Level",
+      field: "city",
+      headerName: "City",
       flex: 1,
-      renderCell: ({row: {access}}) => {
-        return (
-          <Box
-            width="60%"
-            m="auto"
-            mt={"15px"}
-            p={"5px"}
-            display="flex"
-            justifyContent="center"
-            backgroundColor={
-              access === "admin"
-                ? colors.greenAccent[600]
-                : colors.greenAccent[700]
-            }
-            borderRadius="4px"
-          >
-            {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
-            {access === "manager" && <SecurityOutlinedIcon />}
-            {access === "user" && <LockOpenOutlinedIcon />}
-            <Typography
-              color={colors.grey[100]}
-              sx={{ml: "5px"}}
-            >
-              {access}
-            </Typography>
-          </Box>
-        );
-      },
+    },
+    {
+      field: "zipCode",
+      headerName: "Zip Code",
+      flex: 1,
     },
   ];
 
@@ -97,21 +76,24 @@ const Team = () => {
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-              backgroundColor: colors.primary[400],
+            backgroundColor: colors.primary[400],
           },
           "& .MuiDataGrid-filler": {
             display: "none",
           },
           "& .MuiDataGrid-footerContainer": {
-              borderTop: "none",
-              backgroundColor: colors.blueAccent[700],
-          }
-
+            borderTop: "none",
+            backgroundColor: colors.blueAccent[700],
+          },
+          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+            color: `${colors.grey[100]} !important`,
+          },
         }}
       >
         <DataGrid
-          rows={mockDataTeam}
+          rows={mockDataContacts}
           columns={columns}
+          slots={{toolbar: GridToolbar}}
         />
       </Box>
     </Box>
