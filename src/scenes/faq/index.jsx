@@ -15,7 +15,7 @@ const FAQ = () => {
             <Header title="FAQ" subtitle="Frequently Asked Questions Page" />
             <Accordion defaultExpanded>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography colors={colors.greenAccent[500]} variant="h5">
+                    <Typography color={colors.greenAccent[500]} variant="h5">
                         An Important Question
                     </Typography>
                 </AccordionSummary>
@@ -27,7 +27,7 @@ const FAQ = () => {
             </Accordion>
             <Accordion defaultExpanded>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography colors={colors.greenAccent[500]} variant="h5">
+                    <Typography color={colors.greenAccent[500]} variant="h5">
                         Another Important Question
                     </Typography>
                 </AccordionSummary>
@@ -39,7 +39,7 @@ const FAQ = () => {
             </Accordion>
             <Accordion defaultExpanded>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography colors={colors.greenAccent[500]} variant="h5">
+                    <Typography color={colors.greenAccent[500]} variant="h5">
                         Your Favorite Question
                     </Typography>
                 </AccordionSummary>
@@ -51,7 +51,7 @@ const FAQ = () => {
             </Accordion>
             <Accordion defaultExpanded>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography colors={colors.greenAccent[500]} variant="h5">
+                    <Typography color={colors.greenAccent[500]} variant="h5">
                         Some Random Question
                     </Typography>
                 </AccordionSummary>
@@ -63,7 +63,7 @@ const FAQ = () => {
             </Accordion>
             <Accordion defaultExpanded>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography colors={colors.greenAccent[500]} variant="h5">
+                    <Typography color={colors.greenAccent[500]} variant="h5">
                         The Final Question
                     </Typography>
                 </AccordionSummary>
