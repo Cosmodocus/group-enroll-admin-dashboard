@@ -1,10 +1,10 @@
-import {useTheme} from "@mui/material";
-import {ResponsiveBar} from "@nivo/bar";
-import {tokens} from "../theme";
-import {mockBarData as data} from "../data/mockData";
+import { useTheme } from "@mui/material";
+import { ResponsiveBar } from "@nivo/bar";
+import { tokens } from "../theme";
+import { mockBarData as data } from "../data/mockData"; // Ensure to update mockBarData accordingly
 import PropTypes from "prop-types";
 
-const BarChart = ({isDashboard = false}) => {
+const BarChart = ({ isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -39,13 +39,13 @@ const BarChart = ({isDashboard = false}) => {
           },
         },
       }}
-      keys={["hot dog", "burger", "sandwich", "kebab", "fries", "donut"]}
-      indexBy="country"
-      margin={{top: 50, right: 130, bottom: 50, left: 60}}
+      keys={["claims", "policies", "premiums", "satisfaction", "renewals"]}
+      indexBy="region" // Adjusted to "region" to represent geographical data
+      margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
       padding={0.3}
-      valueScale={{type: "linear"}}
-      indexScale={{type: "band", round: true}}
-      colors={{scheme: "nivo"}}
+      valueScale={{ type: "linear" }}
+      indexScale={{ type: "band", round: true }}
+      colors={{ scheme: "nivo" }}
       defs={[
         {
           id: "dots",
@@ -69,13 +69,13 @@ const BarChart = ({isDashboard = false}) => {
       fill={[
         {
           match: {
-            id: "fries",
+            id: "premiums",
           },
           id: "dots",
         },
         {
           match: {
-            id: "sandwich",
+            id: "claims",
           },
           id: "lines",
         },
@@ -90,7 +90,7 @@ const BarChart = ({isDashboard = false}) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "country",
+        legend: isDashboard ? undefined : "Region",
         legendPosition: "middle",
         legendOffset: 32,
         truncateTickAt: 0,
@@ -99,7 +99,7 @@ const BarChart = ({isDashboard = false}) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "food",
+        legend: isDashboard ? undefined : "Count",
         legendPosition: "middle",
         legendOffset: -40,
         truncateTickAt: 0,
@@ -136,9 +136,9 @@ const BarChart = ({isDashboard = false}) => {
         },
       ]}
       role="application"
-      ariaLabel="Nivo bar chart demo"
+      ariaLabel="Insurance Bar Chart Demo"
       barAriaLabel={(e) =>
-        e.id + ": " + e.formattedValue + " in country: " + e.indexValue
+        e.id + ": " + e.formattedValue + " in region: " + e.indexValue
       }
     />
   );

@@ -1,5 +1,5 @@
-import {ColorModeContext, useMode} from "./theme";
-import {CssBaseline, ThemeProvider} from "@mui/material";
+import { ColorModeContext, useMode } from "./theme";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import TopBar from "./scenes/global/TopBar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
@@ -14,16 +14,19 @@ import FAQ from "./scenes/faq";
 import Geography from "./scenes/geography";
 import Calender from "./scenes/calender";
 import { Route, Routes } from "react-router-dom";
+import { useState } from "react";
 
 const App = () => {
   const [theme, colorMode] = useMode();
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <div className="app">
-          <Sidebar />
-          <main className="content">
+        <div className={`app ${isSidebarCollapsed ? 'collapsed' : ''}`}>
+          <Sidebar onCollapse={setIsSidebarCollapsed} />
+          <main className={`content ${isSidebarCollapsed ? 'collapsed' : ''}`}>
             <TopBar />
             <Routes>
               <Route path="/" element={<Dashboard />} />

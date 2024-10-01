@@ -1,4 +1,4 @@
-import {Box, Button, IconButton, Typography, useTheme} from "@mui/material";
+import {Box,  IconButton, Typography, useTheme} from "@mui/material";
 import {tokens} from "../../theme";
 import {mockTransactions} from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
@@ -28,7 +28,7 @@ const DashBoard = () => {
           title={"DASHBOARD"}
           subtitle={"Welcome to your dashboard"}
         />
-        <Box>
+        {/* <Box>
           <Button
             sx={{
               backgroundColor: colors.blueAccent[700],
@@ -41,7 +41,7 @@ const DashBoard = () => {
             <DownloadOutlinedIcon sx={{mr: "10px"}} />
             Download Reports
           </Button>
-        </Box>
+        </Box> */}
       </Box>
 
       {/* GRID & CHARTS */}
@@ -66,7 +66,7 @@ const DashBoard = () => {
             increase="+14%"
             icon={
               <EmailIcon
-                sx={{color: colors.greenAccent[600], fontSize: "26px"}}
+                sx={{color: colors.greenAccent[500], fontSize: "26px"}}
               />
             }
           />
@@ -85,7 +85,7 @@ const DashBoard = () => {
             increase="+21%"
             icon={
               <PointOfSaleIcon
-                sx={{color: colors.greenAccent[600], fontSize: "26px"}}
+                sx={{color: colors.greenAccent[500], fontSize: "26px"}}
               />
             }
           />
@@ -104,7 +104,7 @@ const DashBoard = () => {
             increase="+5%"
             icon={
               <PersonAddIcon
-                sx={{color: colors.greenAccent[600], fontSize: "26px"}}
+                sx={{color: colors.greenAccent[500], fontSize: "26px"}}
               />
             }
           />
@@ -123,7 +123,7 @@ const DashBoard = () => {
             increase="+43%"
             icon={
               <TrafficIcon
-                sx={{color: colors.greenAccent[600], fontSize: "26px"}}
+                sx={{color: colors.greenAccent[500], fontSize: "26px"}}
               />
             }
           />
@@ -258,20 +258,23 @@ const DashBoard = () => {
             <Typography
             variant="h5"
             fontWeight={"600"}
+            align="center"
           >
             Includes extra miscelleneous expenditures and costs
           </Typography>
           </Box>
         </Box>
         <Box
-          gridColumn={"span 4"}
+          gridColumn={"span 8"}
           gridRow={"span 2"}
           backgroundColor={colors.primary[400]}
+          height={"300px"} // Increased height for more space
+          p="30px" // Added padding for more space around the chart
         >
           <Typography
             variant="h5"
             fontWeight={"600"}
-            sx={{padding: "30px 30px 0 30px"}}
+            sx={{pb: "20px"}}
           >
             Sales Quantity
           </Typography>
@@ -280,10 +283,10 @@ const DashBoard = () => {
             mt="-20px"
           >
             <BarChart isDashboard={true} />
-            
+
           </Box>
-        </Box> 
-        <Box
+        </Box>
+        {/* <Box
           gridColumn={"span 4"}
           gridRow={"span 2"}
           backgroundColor={colors.primary[400]}
@@ -294,14 +297,14 @@ const DashBoard = () => {
             fontWeight={"600"}
             sx={{mb: "15px"}}
           >
-            Geography Based Traffiv
+            Geography Based Traffic
           </Typography>
           <Box
             height={"200px"}
           >
            <GeographyChart isDashboard={true} />
           </Box>
-        </Box>
+        </Box> */}
         {/*  */}
       </Box>
     </Box>

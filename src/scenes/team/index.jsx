@@ -13,7 +13,7 @@ const Team = () => {
 
   const columns = [
     {field: "id", headerName: "ID", flex: 0.5},
-    
+
     {
       field: "name",
       headerName: "Name",
@@ -52,7 +52,7 @@ const Team = () => {
             justifyContent="center"
             backgroundColor={
               access === "admin"
-                ? colors.greenAccent[600]
+                ? colors.greenAccent[500]
                 : colors.greenAccent[700]
             }
             borderRadius="4px"
@@ -94,7 +94,7 @@ const Team = () => {
             border: "none",
           },
           "& .name-column--cell": {
-            color: colors.greenAccent[300],
+            color: colors.greenAccent[500],
           },
           "& .MuiDataGrid-columnHeader": {
             backgroundColor: colors.blueAccent[700],

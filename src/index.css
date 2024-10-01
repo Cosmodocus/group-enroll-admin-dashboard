@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
 
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Baloo 2", sans-serif;
+}
+
 html,
 body,
 #root,
@@ -7,13 +15,38 @@ body,
 .content {
   height: 100%;
   width: 100%;
-  font-family: "Source Sans Pro", sans-serif;
 }
+
+/* .app {
+  display: flex;
+  position: relative;
+} */
 
 .app {
   display: flex;
-  position: relative;
 }
+
+.content {
+  margin-left: 280px; /* Default expanded sidebar margin */
+  width: calc(100% - 120px); /* Default expanded width */
+  transition: margin-left 0.3s ease; /* Smooth transition when toggling */
+}
+
+.content.collapsed {
+  margin-left: 80px; /* Margin for collapsed state */
+  width: calc(100% - 80px); /* Width for collapsed state */
+}
+
+.sidebar {
+  width: 120px; /* Width of the sidebar when expanded */
+  transition: width 0.3s ease; /* Smooth transition for width */
+}
+
+.sidebar.collapsed {
+  width: 80px; /* Width of the sidebar when collapsed */
+}
+
+
 
 ::-webkit-scrollbar {
   width: 10px;
