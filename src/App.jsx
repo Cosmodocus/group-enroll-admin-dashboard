@@ -11,7 +11,6 @@ import Form from "./scenes/form";
 import Line from "./scenes/line";
 import Pie from "./scenes/pie";
 import FAQ from "./scenes/faq";
-import Geography from "./scenes/geography";
 import Calender from "./scenes/calender";
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
@@ -38,7 +37,6 @@ const App = () => {
               <Route path="/pie" element={<Pie />} />
               <Route path="/line" element={<Line />} />
               <Route path="/faq" element={<FAQ />} />
-              <Route path="/geography" element={<Geography />} />
               <Route path="/calender" element={<Calender />} />
             </Routes>
           </main>

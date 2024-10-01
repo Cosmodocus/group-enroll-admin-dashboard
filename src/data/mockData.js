@@ -271,31 +271,31 @@ export const mockTransactions = [
     txId: "01e4dsa",
     user: "johndoe",
     date: "2023-09-01",
-    cost: "43.95",
+    cost: "$43.95",
   },
   {
     txId: "0315dsaa",
     user: "jackwilliams",
     date: "2023-04-01",
-    cost: "133.45",
+    cost: "$133.45",
   },
   {
     txId: "01e4dsa",
     user: "abernathyjones",
     date: "2023-09-01",
-    cost: "43.95",
+    cost: "$43.95",
   },
   {
     txId: "51034szv",
     user: "goodmanave",
     date: "2023-11-05",
-    cost: "200.95",
+    cost: "$200.95",
   },
   {
     txId: "0qhtdsj",
     user: "katgreen",
     date: "2023-03-12",
-    cost: "47.50",
+    cost: "$47.50",
   },
 ];
 
