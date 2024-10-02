@@ -20,7 +20,7 @@ export const tokens = (mode) => ({
           100: "#d0d1d5", // Light shade
           200: "#a1a4ab", // Medium light shade
           300: "#727681", // Medium shade
-          400: "#1F2A40", // Modified slightly
+          400: "#101624", // Modified slightly
           500: "#1B447E", // Dark Blue
           600: "#101624", // Deeper shade
           700: "#0c101b", // Very dark
