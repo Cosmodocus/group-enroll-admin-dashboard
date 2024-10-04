@@ -5,7 +5,7 @@ import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import EmailIcon from "@mui/icons-material/Email";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import TrafficIcon from "@mui/icons-material/Traffic";
+import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import LineChart from "../../components/LineChart";
 import BarChart from "../../components/BarChart";
 import StatBox from "../../components/StatBox";
@@ -48,27 +48,70 @@ const DashBoard = () => {
         gridAutoRows="140px"
         gap="20px"
       >
-        {/* ROW 1 */}
-        {[...Array(4)].map((_, index) => (
-          <Box
-            key={index}
-            gridColumn={{ xs: "span 4", sm: "span 4", md: "span 3" }}
-            backgroundColor={colors.primary[400]}
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <StatBox
-              title={"12,361"} // Modify as needed for each box
-              subtitle={"Emails Sent"} // Modify as needed for each box
-              progress="0.75" // Modify as needed for each box
-              increase="+14%" // Modify as needed for each box
-              icon={
-                <EmailIcon sx={{ color: colors.greenAccent[500], fontSize: "26px" }} />
-              } // Change icons as needed
-            />
-          </Box>
-        ))}
+       {/* ROW 1 */}
+<Box
+  gridColumn={{ xs: "span 4", sm: "span 4", md: "span 3" }}
+  backgroundColor={colors.primary[400]}
+  display="flex"
+  alignItems="center"
+  justifyContent="center"
+>
+  <StatBox
+    title={"8,124"} // Number of Claims Processed
+    subtitle={"Claims Processed"} // Updated title
+    progress="0.80"
+    increase="+10%"
+    icon={<EmailIcon sx={{ color: colors.greenAccent[500], fontSize: "26px" }} />} // Adjust icon as necessary
+  />
+</Box>
+
+<Box
+  gridColumn={{ xs: "span 4", sm: "span 4", md: "span 3" }}
+  backgroundColor={colors.primary[400]}
+  display="flex"
+  alignItems="center"
+  justifyContent="center"
+>
+  <StatBox
+    title={"543"} // Number of Policies Sold
+    subtitle={"Policies Sold"} // Updated title
+    progress="0.75"
+    increase="+12%"
+    icon={<PointOfSaleIcon sx={{ color: colors.greenAccent[500], fontSize: "26px" }} />}
+  />
+</Box>
+
+<Box
+  gridColumn={{ xs: "span 4", sm: "span 4", md: "span 3" }}
+  backgroundColor={colors.primary[400]}
+  display="flex"
+  alignItems="center"
+  justifyContent="center"
+>
+  <StatBox
+    title={"132"} // Number of New Clients
+    subtitle={"New Clients"} // Updated title
+    progress="0.60"
+    increase="+8%"
+    icon={<PersonAddIcon sx={{ color: colors.greenAccent[500], fontSize: "26px" }} />}
+  />
+</Box>
+
+<Box
+  gridColumn={{ xs: "span 4", sm: "span 4", md: "span 3" }}
+  backgroundColor={colors.primary[400]}
+  display="flex"
+  alignItems="center"
+  justifyContent="center"
+>
+  <StatBox
+    title={"$45,234"} // Amount of Claims Paid
+    subtitle={"Claims Paid"} // Updated title
+    progress="0.85"
+    increase="+15%"
+    icon={<MonetizationOnIcon sx={{ color: colors.greenAccent[500], fontSize: "26px" }} />} // Adjust icon as necessary
+  />
+</Box>
 
         {/* ROW 2 */}
         <Box
