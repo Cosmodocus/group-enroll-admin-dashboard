@@ -1,7 +1,7 @@
-import {Box, Typography, useTheme} from "@mui/material";
-import {DataGrid} from "@mui/x-data-grid";
-import {tokens} from "../../theme";
-import {mockDataTeam} from "../../data/mockData";
+import { Box, Typography, useTheme } from "@mui/material";
+import { DataGrid } from "@mui/x-data-grid";
+import { tokens } from "../../theme";
+import { mockDataTeam } from "../../data/mockData";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
@@ -12,8 +12,7 @@ const Team = () => {
   const colors = tokens(theme.palette.mode);
 
   const columns = [
-    {field: "id", headerName: "ID", flex: 0.5},
-
+    { field: "id", headerName: "ID", flex: 0.5 },
     {
       field: "name",
       headerName: "Name",
@@ -41,7 +40,7 @@ const Team = () => {
       field: "access",
       headerName: "Access Level",
       flex: 1,
-      renderCell: ({row: {access}}) => {
+      renderCell: ({ row: { access } }) => {
         return (
           <Box
             width="60%"
@@ -60,10 +59,7 @@ const Team = () => {
             {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
             {access === "manager" && <SecurityOutlinedIcon />}
             {access === "user" && <LockOpenOutlinedIcon />}
-            <Typography
-              color={colors.grey[100]}
-              sx={{ml: "5px"}}
-            >
+            <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
               {access}
             </Typography>
           </Box>
@@ -74,13 +70,10 @@ const Team = () => {
 
   return (
     <Box m={"20px"}>
-      <Header
-        title={"TEAM"}
-        subtitle={"Managing the Team Members"}
-      />
+      <Header title={"TEAM"} subtitle={"Managing the Team Members"} />
       <Box
         m="40px 0 0 0"
-        height="75vh"
+        height={{ xs: "auto", sm: "75vh" }} // Adjust height for small screens
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
@@ -101,21 +94,27 @@ const Team = () => {
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
-              backgroundColor: colors.primary[400],
+            backgroundColor: colors.primary[400],
           },
           "& .MuiDataGrid-filler": {
             display: "none",
           },
           "& .MuiDataGrid-footerContainer": {
-              borderTop: "none",
-              backgroundColor: colors.blueAccent[700],
-          }
-
+            borderTop: "none",
+            backgroundColor: colors.blueAccent[700],
+          },
         }}
       >
         <DataGrid
           rows={mockDataTeam}
           columns={columns}
+          autoHeight // Auto height for better responsiveness
+          pageSizeOptions={[5, 10, 20]} // Provide options for page size
+          initialState={{
+            pagination: {
+              pageSize: 10, // Default page size
+            },
+          }}
         />
       </Box>
     </Box>

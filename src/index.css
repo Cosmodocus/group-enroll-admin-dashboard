@@ -48,21 +48,22 @@ body,
 
 
 
+/* Scrollbar styles */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 10px; /* Width of the scrollbar */
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #e0e0e0;
+  background: #3d3d3d; /* Dark grey for the track in dark mode */
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #888; /* Medium grey for the handle */
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #666; /* Darker grey on hover */
 }

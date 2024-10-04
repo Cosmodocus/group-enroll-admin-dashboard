@@ -1,7 +1,7 @@
-import {useTheme} from "@emotion/react";
-import {ResponsivePie} from "@nivo/pie";
-import {tokens} from "../theme";
-import {mockPieData as data} from "../data/mockData";
+import { useTheme } from "@emotion/react";
+import { ResponsivePie } from "@nivo/pie";
+import { tokens } from "../theme";
+import { mockPieData as data } from "../data/mockData";
 
 const PieChart = () => {
   const theme = useTheme();
@@ -34,11 +34,19 @@ const PieChart = () => {
         },
         legends: {
           text: {
-            fill: colors.grey[100],
+            fill: colors.grey[100], // Maintain light text color for legends
+          },
+        },
+        tooltip: {
+          container: {
+            background: colors.grey[800], // Dark background for tooltip
+            color: colors.grey[100], // Light text for tooltip
+            borderRadius: '4px',
+            padding: '10px',
           },
         },
       }}
-      margin={{top: 40, right: 80, bottom: 80, left: 80}}
+      margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
       innerRadius={0.5}
       padAngle={0.7}
       cornerRadius={3}
@@ -49,9 +57,9 @@ const PieChart = () => {
         modifiers: [["darker", 0.2]],
       }}
       arcLinkLabelsSkipAngle={10}
-      arcLinkLabelsTextColor={colors.grey[100]}
+      arcLinkLabelsTextColor={colors.grey[100]} // Use light color for arc link labels
       arcLinkLabelsThickness={2}
-      arcLinkLabelsColor={{from: "color"}}
+      arcLinkLabelsColor={{ from: "color" }}
       enableArcLabels={false}
       arcLabelsSkipAngle={10}
       arcLabelsTextColor={{
@@ -78,7 +86,6 @@ const PieChart = () => {
           spacing: 10,
         },
       ]}
-      
       legends={[
         {
           anchor: "bottom",
@@ -89,7 +96,7 @@ const PieChart = () => {
           itemsSpacing: 0,
           itemWidth: 100,
           itemHeight: 18,
-          itemTextColor: "#999",
+          itemTextColor: colors.grey[100], // Light text color for legend items
           itemDirection: "left-to-right",
           itemOpacity: 1,
           symbolSize: 18,
@@ -98,7 +105,7 @@ const PieChart = () => {
             {
               on: "hover",
               style: {
-                itemTextColor: "#000",
+                itemTextColor: colors.grey[100], // Maintain the same color on hover
               },
             },
           ],

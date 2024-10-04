@@ -1,10 +1,10 @@
-import {ResponsiveLine} from "@nivo/line";
-import {mockLineData as data} from "../data/mockData";
-import {useTheme} from "@emotion/react";
-import {tokens} from "../theme";
+import { ResponsiveLine } from "@nivo/line";
+import { mockLineData as data } from "../data/mockData";
+import { useTheme } from "@emotion/react";
+import { tokens } from "../theme";
 import PropTypes from "prop-types";
 
-const LineChart = ({isDashboard = false}) => {
+const LineChart = ({ isDashboard = false }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -35,18 +35,21 @@ const LineChart = ({isDashboard = false}) => {
         },
         legends: {
           text: {
-            fill: colors.grey[100],
+            fill: colors.grey[100], // Keep legend text color light for better visibility
           },
         },
         tooltip: {
           container: {
-            color: colors.primary[500],
+            background: colors.grey[800], // Dark background for tooltip
+            color: colors.grey[100], // Light text for tooltip
+            borderRadius: '4px',
+            padding: '10px',
           },
         },
       }}
-      colors={isDashboard ? {datum: "color"} : {scheme: "nivo"}}
-      margin={{top: 50, right: 110, bottom: 50, left: 60}}
-      xScale={{type: "point"}}
+      colors={isDashboard ? { datum: "color" } : ["#ff6384", "#36a2eb", "#ffce56", "#4bc0c0", "#9966ff", "#ff9f40"]} // Custom colors for the chart
+      margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+      xScale={{ type: "point" }}
       yScale={{
         type: "linear",
         min: "auto",
@@ -64,7 +67,7 @@ const LineChart = ({isDashboard = false}) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "transportation",
+        legend: isDashboard ? undefined : "Transportation",
         legendOffset: 36,
         legendPosition: "middle",
         truncateTickAt: 0,
@@ -75,7 +78,7 @@ const LineChart = ({isDashboard = false}) => {
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,
-        legend: isDashboard ? undefined : "count",
+        legend: isDashboard ? undefined : "Count",
         legendOffset: -40,
         legendPosition: "middle",
         truncateTickAt: 0,
@@ -83,9 +86,9 @@ const LineChart = ({isDashboard = false}) => {
       enableGridX={false}
       enableGridY={false}
       pointSize={10}
-      pointColor={{theme: "background"}}
+      pointColor={{ theme: "background" }}
       pointBorderWidth={2}
-      pointBorderColor={{from: "serieColor"}}
+      pointBorderColor={{ from: "serieColor" }}
       pointLabel="data.yFormatted"
       pointLabelYOffset={-12}
       enableTouchCrosshair={true}

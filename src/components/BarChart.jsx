@@ -38,6 +38,14 @@ const BarChart = ({ isDashboard = false }) => {
             fill: colors.grey[100],
           },
         },
+        tooltip: {
+          container: {
+            background: colors.grey[800], // Dark background for tooltip
+            color: colors.grey[100], // Light text for tooltip
+            borderRadius: '4px',
+            padding: '10px',
+          },
+        },
       }}
       keys={["claims", "policies", "premiums", "satisfaction", "renewals"]}
       indexBy="region" // Adjusted to "region" to represent geographical data
@@ -67,12 +75,6 @@ const BarChart = ({ isDashboard = false }) => {
         },
       ]}
       fill={[
-        {
-          match: {
-            id: "premiums",
-          },
-          id: "dots",
-        },
         {
           match: {
             id: "claims",

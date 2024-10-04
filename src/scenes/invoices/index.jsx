@@ -1,15 +1,15 @@
-import {Box, Typography, useTheme} from "@mui/material";
-import {DataGrid} from "@mui/x-data-grid";
-import {mockDataInvoices} from "../../data/mockData";
+import { Box, Typography, useTheme } from "@mui/material";
+import { DataGrid } from "@mui/x-data-grid";
+import { mockDataInvoices } from "../../data/mockData";
 import Header from "../../components/Header";
-import {tokens} from "../../theme";
+import { tokens } from "../../theme";
 
 const Invoices = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   const columns = [
-    {field: "id", headerName: "ID"},
+    { field: "id", headerName: "ID" },
     {
       field: "name",
       headerName: "Name",
@@ -31,13 +31,11 @@ const Invoices = () => {
         </Typography>
       ),
     },
-
     {
       field: "phone",
       headerName: "Phone Number",
       flex: 1,
     },
-
     {
       field: "date",
       headerName: "Date",
@@ -47,20 +45,17 @@ const Invoices = () => {
 
   return (
     <Box m={"20px"}>
-      <Header
-        title={"INVOICES"}
-        subtitle={"List of Invoice Balances"}
-      />
+      <Header title={"INVOICES"} subtitle={"List of Invoice Balances"} />
       <Box
         m="40px 0 0 0"
-        height="75vh"
+        height={{ xs: "auto", sm: "75vh" }} // Adjust height for small screens
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
           },
           "& .MuiDataGrid-cell": {
-            display: "flex",
-            border: "none",
+            border: "none", // Remove cell border
+            display: 'flex',
             alignItems: "center",
           },
           "& .MuiDataGrid-virtualScrollerContent ": {
@@ -71,7 +66,10 @@ const Invoices = () => {
           },
           "& .MuiDataGrid-columnHeader": {
             backgroundColor: colors.blueAccent[700],
-            borderBottom: "none",
+            borderBottom: "none", // Remove header bottom border
+            "&:last-child": { // Ensure no border for last child
+              borderRight: "none"
+            }
           },
           "& .MuiDataGrid-virtualScroller": {
             backgroundColor: colors.primary[400],
@@ -85,13 +83,20 @@ const Invoices = () => {
           },
           "& .MuiCheckbox-root": {
             color: `${colors.greenAccent[500]} !important`,
-          }
+          },
         }}
       >
         <DataGrid
           checkboxSelection
           rows={mockDataInvoices}
           columns={columns}
+          autoHeight // Auto height for better responsiveness
+          pageSizeOptions={[5, 10, 20]} // Provide options for page size
+          initialState={{
+            pagination: {
+              pageSize: 10, // Default page size
+            },
+          }}
         />
       </Box>
     </Box>

@@ -1,17 +1,17 @@
-import {Box} from "@mui/material";
-import {DataGrid, GridToolbar} from "@mui/x-data-grid";
-import {mockDataContacts} from "../../data/mockData";
+import { Box } from "@mui/material";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
-import {useTheme} from "@mui/material";
-import {tokens} from "../../theme";
+import { useTheme } from "@mui/material";
+import { tokens } from "../../theme";
 
 const Contacts = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   const columns = [
-    {field: "id", headerName: "ID"},
-    {field: "registrarId", headerName: "Registrar ID", flex: 0.5},
+    { field: "id", headerName: "ID" },
+    { field: "registrarId", headerName: "Registrar ID", flex: 0.5 },
     {
       field: "name",
       headerName: "Name",
@@ -49,10 +49,7 @@ const Contacts = () => {
 
   return (
     <Box m={"20px"}>
-      <Header
-        title={"CONTACTS"}
-        subtitle={"List of Contacts for Future Referance"}
-      />
+      <Header title={"CONTACTS"} subtitle={"List of Contacts for Future Reference"} />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -61,7 +58,8 @@ const Contacts = () => {
             border: "none",
           },
           "& .MuiDataGrid-cell": {
-            border: "none",
+            border: "none", // Remove cell border
+            display: 'flex',
             alignItems: "center",
             justifyContent: "center",
           },
@@ -73,7 +71,10 @@ const Contacts = () => {
           },
           "& .MuiDataGrid-columnHeader": {
             backgroundColor: colors.blueAccent[700],
-            borderBottom: "none",
+            borderBottom: "none", // Remove header bottom border
+            "&:last-child": { // Ensure no border for last child
+              borderRight: "none"
+            }
           },
           "& .MuiDataGrid-virtualScroller": {
             backgroundColor: colors.primary[400],
@@ -93,7 +94,7 @@ const Contacts = () => {
         <DataGrid
           rows={mockDataContacts}
           columns={columns}
-          slots={{toolbar: GridToolbar}}
+          slots={{ toolbar: GridToolbar }}
         />
       </Box>
     </Box>
